@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniruddha Dinesh Shinde | Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .skill-card li i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .project-links a {
+            color: var(--text-main);
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Education & Achievements Timeline */
+        .timeline-item {
+            background-color: var(--card-bg);
+            padding: 20px 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+        }
+
+        .timeline-item .institution {
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        /* Contact & Inquiry */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a i {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-right: 15px;
+            width: 25px;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Can be expanded into a mobile menu */
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Aniruddha Shinde</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home / Hero Section -->
+    <section id="home">
+        <div class="container hero">
+            <h1>Hi, I'm <span>Aniruddha Dinesh Shinde</span></h1>
+            <p>Data Science & AI Enthusiast | Pursuing M.Sc. in AI & Data Science</p>
+            <div>
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: var(--text-muted);">
+                I am a passionate postgraduate student focusing on Artificial Intelligence and Data Science. With a solid foundation in Computer Science, I specialize in building intelligent solutions, data-driven analysis, and solving complex real-world problems through code and modern technologies.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Core CS</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-code"></i> Data Structures</li>
+                        <li><i class="fa-solid fa-gears"></i> Algorithms</li>
+                        <li><i class="fa-solid fa-database"></i> DBMS & SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Science & AI</h3>
+                    <ul>
+                        <li><i class="fa-brands fa-python"></i> Python Ecosystem</li>
+                        <li><i class="fa-solid fa-brain"></i> Machine Learning</li>
+                        <li><i class="fa-solid fa-chart-pie"></i> Data Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Tech</h3>
+                    <ul>
+                        <li><i class="fa-brands fa-github"></i> Git & GitHub</li>
+                        <li><i class="fa-solid fa-laptop-code"></i> VS Code / IDEs</li>
+                        <li><i class="fa-brands fa-html5"></i> Web Basics (HTML/CSS)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3>AI / Data Analytics Project</h3>
+                        <p>A machine learning model built to analyze data patterns and perform automated predictive modeling.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Pandas</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/aniruddhashinde2005-alt" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3>Computer Science Web App</h3>
+                        <p>An interactive dynamic application created to solve analytical tasks efficiently.</p>
+                        <div class="tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/aniruddhashinde2005-alt" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="timeline-item">
+                <h3>Master of Science (M.Sc.) in AI & Data Science</h3>
+                <div class="institution">Indira University</div>
+                <p style="color: var(--text-muted);">Currently Pursuing</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Bachelor of Science (B.Sc.) in Computer Science</h3>
+                <div class="institution">Prof. Ramkrishna More College</div>
+                <p style="color: var(--text-muted);">Graduated</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            
+            <div class="timeline-item">
+                <h3>Academic Excellence & Academic Milestone</h3>
+                <p style="color: var(--text-muted);">Successfully completed B.Sc. in Computer Science and secured admission for M.Sc. specializing in Artificial Intelligence and Data Science.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Technical Certifications & Work</h3>
+                <p style="color: var(--text-muted);">Completed multiple certifications in Machine Learning fundamentals, Python development, and Database management systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                
+                <!-- Profile Links -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Feel free to reach out via email or connect with me on social platforms.</p>
+                    
+                    <a href="mailto:aniruddhashinde2005@gmail.com">
+                        <i class="fa-solid fa-envelope"></i> aniruddhashinde2005@gmail.com
+                    </a>
+                    <a href="https://github.com/aniruddhashinde2005-alt" target="_blank">
+                        <i class="fa-brands fa-github"></i> GitHub Profile
+                    </a>
+                    <a href="https://www.linkedin.com/in/aniruddha-shinde-1336a3329?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+                    </a>
+                </div>
+
+                <!-- Direct Email Inquiry Form -->
+                <div>
+                    <h3>Send Inquiry</h3>
+                    <form action="https://formspree.io/f/aniruddhashinde2005@gmail.com" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="subject" placeholder="Subject" required>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer;">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aniruddha Dinesh Shinde. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
